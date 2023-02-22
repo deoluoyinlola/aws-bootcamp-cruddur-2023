@@ -19,6 +19,7 @@
 ![github-repo-acct.png](assets/github-repo-acct.png)
 
 ### gitpod account
+This is alternative to local IDE like VScode and other cloud IDE like gitHub codespace, AWS Cloud9
 - I set up gitpod account following this pretty simple video; [from Gifted lane](https://www.youtube.com/watch?v=yh9kz9Sh1T8&list=PLBfufR7vyJJ7k25byhRXJldB5AiwgNnWv&index=5)
 
 ![gitpod-acct.png](assets/gitpod-acct.png)
