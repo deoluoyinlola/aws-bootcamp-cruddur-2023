@@ -93,3 +93,23 @@ busybosy is often used for debugging since it install a bunch of thing
 docker run --rm -it busybosy
 ```
 
+### Gain Access to a Container
+```
+docker exec CONTAINER_ID -it /bin/bash
+```
+You can just right click a container and see logs in VSCode with Docker extension
+
+### Delete an Image
+```
+docker image rm backend-flask --force
+```
+docker rmi backend-flask is the legacy syntax, you might see this is old docker tutorials and articles.
+
+There are some cases where you need to use the --force
+
+### Overriding Ports
+```
+FLASK_ENV=production PORT=8080 docker run -p 4567:4567 -it backend-flask
+```
+Look at Dockerfile to see how ${PORT} is interpolated
+
