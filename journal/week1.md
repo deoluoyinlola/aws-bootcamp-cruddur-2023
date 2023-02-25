@@ -15,3 +15,4 @@ cd ..
 - I open the link for 4567 in your browser
 - I append to the url to /api/activities/home
 - I get back json
+![flask-install](assets/port-open.png)
