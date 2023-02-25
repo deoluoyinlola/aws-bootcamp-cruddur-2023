@@ -113,3 +113,26 @@ FLASK_ENV=production PORT=8080 docker run -p 4567:4567 -it backend-flask
 ```
 Look at Dockerfile to see how ${PORT} is interpolated
 
+### Containerize Frontend
+Run `npm Install`
+We have to run NPM Install before building the container since it needs to copy the contents of node_modules
+
+```
+cd frontend-react-js
+npm i
+```
+
+### Create Docker File
+Create a file here: `frontend-react-js/Dockerfile`
+
+```
+FROM node:16.18
+
+ENV PORT=3000
+
+COPY . /frontend-react-js
+WORKDIR /frontend-react-js
+RUN npm install
+EXPOSE ${PORT}
+CMD ["npm", "start"]
+```
