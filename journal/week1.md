@@ -146,6 +146,8 @@ docker build -t frontend-react-js ./frontend-react-js
 ```
 docker run -p 3000:3000 -d frontend-react-js
 ```
+![dockerfile](assets/run-frnd.png)
+
 ## Multiple Containers
 ### Create a docker-compose file
 Create `docker-compose.yml` at the root of your project.
