@@ -17,7 +17,7 @@ cd ..
 - I get back json
 ![flask-install](assets/port-open.png)
 Above is manual process before exploring Dockerfile, remember to unset the variables(BACKEND_URL and FRONTEND_URL) before building with Dockerfile
-![flask-install](assets/unset-var.png)
+![unset-variable](assets/unset-var.png)
 
 ### Add Dockerfile
 Create a file here: backend-flask/Dockerfile
@@ -41,6 +41,7 @@ CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=4567"]
 ```
 docker build -t  backend-flask ./backend-flask
 ```
+![docker-build](assets/docker-build.png)
 
 ### Run Container
 Run
