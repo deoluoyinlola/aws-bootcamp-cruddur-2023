@@ -43,6 +43,13 @@ docker build -t  backend-flask ./backend-flask
 ```
 ![docker-build](assets/docker-build.png)
 
+Get Container Images or Running Container Ids
+```
+docker ps
+docker images
+```
+![docker-ps](assets/docker-ps.png)
+
 ### Run Container
 Run
 ```
@@ -64,4 +71,25 @@ Return the container id into an Env Vat
 CONTAINER_ID=$(docker run --rm -p 4567:4567 -d backend-flask)
 ```
 
+### Send Curl to Test Server
+```
+curl -X GET http://localhost:4567/api/activities/home -H "Accept: application/json" -H "Content-Type: application/json"
+```
+
+Check Container Logs
+```
+docker logs CONTAINER_ID -f
+docker logs backend-flask -f
+docker logs $CONTAINER_ID -f
+```
+
+Debugging adjacent containers with other containers
+```
+docker run --rm -it curlimages/curl "-X GET http://localhost:4567/api/activities/home -H \"Accept: application/json\" -H \"Content-Type: application/json\""
+```
+busybosy is often used for debugging since it install a bunch of thing
+
+```
+docker run --rm -it busybosy
+```
 
