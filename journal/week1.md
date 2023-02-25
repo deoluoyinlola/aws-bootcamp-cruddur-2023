@@ -1,7 +1,7 @@
 # Week 1 — App Containerization
 
 ## Required Homework
-### install flask module
+### Install flask module
 ```
 cd backend-flask
 export FRONTEND_URL="*"
@@ -16,13 +16,32 @@ cd ..
 - I append to the url to /api/activities/home
 - I get back json
 ![flask-install](assets/port-open.png)
+Above is manual process before exploring Dockerfile, remember to unset the variables(BACKEND_URL and FRONTEND_URL) before building with Dockerfile
 
-### build Container
+### Add Dockerfile
+Create a file here: backend-flask/Dockerfile
+```
+FROM python:3.10-slim-buster
+
+WORKDIR /backend-flask
+
+COPY requirements.txt requirements.txt
+RUN pip3 install -r requirements.txt
+
+COPY . .
+
+ENV FLASK_ENV=development
+
+EXPOSE ${PORT}
+CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=4567"]
+```
+
+### Build Container
 ```
 docker build -t  backend-flask ./backend-flask
 ```
 
-### run Container
+### Run Container
 Run
 ```
 docker run --rm -p 4567:4567 -it backend-flask
