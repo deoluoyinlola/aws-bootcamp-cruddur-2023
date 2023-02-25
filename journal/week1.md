@@ -1,6 +1,7 @@
 # Week 1 — App Containerization
 
 ## Required Homework
+## Containerize Backend
 ### Install flask module
 ```
 cd backend-flask
@@ -54,11 +55,9 @@ docker images
 Run
 ```
 docker run --rm -p 4567:4567 -it backend-flask
-FRONTEND_URL="*" BACKEND_URL="*" docker run --rm -p 4567:4567 -it backend-flask
 export FRONTEND_URL="*"
 export BACKEND_URL="*"
 docker run --rm -p 4567:4567 -it -e FRONTEND_URL='*' -e BACKEND_URL='*' backend-flask
-docker run --rm -p 4567:4567 -it  -e FRONTEND_URL -e BACKEND_URL backend-flask
 unset FRONTEND_URL="*"
 unset BACKEND_URL="*"
 ```
@@ -99,8 +98,7 @@ docker run --rm -it busybosy
 ```
 docker exec CONTAINER_ID -it /bin/bash
 ```
-You can just right click a container and see logs in VSCode with Docker extension
-
+With Docker extension, I can just right click a container and see logs in VSCode or choose `Attach shell`
 ### Delete an Image
 ```
 docker image rm backend-flask --force
@@ -115,7 +113,7 @@ FLASK_ENV=production PORT=8080 docker run -p 4567:4567 -it backend-flask
 ```
 Look at Dockerfile to see how ${PORT} is interpolated
 
-### Containerize Frontend
+## Containerize Frontend
 Run `npm Install`
 We have to run NPM Install before building the container since it needs to copy the contents of node_modules
 
@@ -138,3 +136,4 @@ RUN npm install
 EXPOSE ${PORT}
 CMD ["npm", "start"]
 ```
+![dockerfile](assets/npm-dockerfile.png)
